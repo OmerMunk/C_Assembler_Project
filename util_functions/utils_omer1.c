@@ -6,27 +6,28 @@
 
 //function to convert decimal to binary
 void dec_to_bin(int n, int *arr) {
-    int i = 0;
+    int i = 9;
     while (n > 0) {
         arr[i] = n % 2;
         n = n / 2;
-        i++;
+        i--;
     }
 }
 
 void print_bin(int *arr) {
     int i;
-    for (i = 9; i > -1; i--) {
+    for (i = 0; i < 10; i++) {
         printf("%d", arr[i]);
     }
 }
 
 void bin_to_dec(int length, int *arr) {
-    int i = 0;
+    int i = length-1;
     int sum = 0;
-    while (i < length) {
-        sum = sum + arr[i] * pow(2, i);
-        i++;
+    while (i > -1) {
+//        printf("\nnumber right now is %d ,sum right now is: %d, i is %d, pow is %f\n", arr[i],sum, i, pow(2, length - (i + 1)));
+        sum = sum + arr[i] * pow(2, length - (i + 1));
+        i--;
     }
     printf("%d", sum);
 }
@@ -121,12 +122,15 @@ void base32_to_dec(int length, char *arr) {
     printf("%d", sum);
 }
 
+
 void print_base32(char *arr) {
     int i;
     for (i = 9; i > -1; i--) {
         printf("%c", arr[i]);
     }
 }
+
+
 
 
 
