@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "util_functions/base_functions.c"
+#include "pre-assembler/pre_assembler.c"
+#include <stdlib.h>
+#include <string.h>
 //#include "util_functions/utils_omer1_header.h"
+//#include "./pre-assembler/pre_assembler.h"
 
 char x;
 
@@ -40,7 +44,36 @@ int main() {
     bin_to_base32(arr7, arr8);
     printf("\n");
     print_base32(arr8);
+    printf("\n");
 
+
+    char* file_string1 = read_file("../hello.txt");
+    char* file_string4 = read_file("../hello2.txt");
+    char* file_string3 = read_file("../hello.txt");
+
+//    char* file_string2 = read_file("../hello3.txt");
+    char* file_string2 = read_file("../text4.txt");
+
+    printf("%s", file_string2);
+    printf("\n");
+    char* macro_name;
+    macro_name = malloc(sizeof(char) * 200);
+
+    char* macro_body;
+    macro_body = malloc(sizeof(char) * 200);
+
+//    is_macro(file_string2, macro_name,  macro_body);
+//    printf("\nfinished");
+//    macro_struct macro_struct1;
+//    macro_struct1.name = macro_name;
+//    macro_struct1.body = macro_body;
+//    printf("\nThe macro name is:\n");
+//    printf("%s", macro_struct1.name);
+//    printf("\nThe macro body is:\n");
+//    printf("%s", macro_struct1.body);
+    char* result =(get_string_without_macros(file_string2));
+    printf("\n%s\n", result);
+    printf("%s", replace_macro("omg this is so great", "so", "1234"));
 
     return 0;
 }
