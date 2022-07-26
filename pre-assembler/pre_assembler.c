@@ -26,8 +26,8 @@ char *read_file(char *file_name) {
 
 
 //function that gets a string a checks if it has the sub-string 'macro'
-int is_macro(char *string, char *macro_name, char *macro_body) {
-    int i = 0;
+int is_macro(char *string, char *macro_name, char *macro_body, int position) {
+    int i = position;
     while (string[i] != '\0') {
         if (string[i] == 'm') {
             if (string[i + 1] == 'a') {
@@ -57,7 +57,7 @@ int is_macro(char *string, char *macro_name, char *macro_body) {
                                     k++;
                                 }
                                 macro_body[k] = '\0';
-                                return 1;
+                                return i+12+j+k; //the position of the end of the macro, so the next execution will start from here
                             }
                         }
                     }
