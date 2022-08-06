@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "pre-assembler/pre_assembler.c"
 void fileHandler(char *arg)
 {
     /* Initialize an object of type FILE as source,destination */
